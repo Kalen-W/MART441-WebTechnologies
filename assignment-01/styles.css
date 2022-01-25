@@ -1,0 +1,239 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background-color: #222;
+}
+
+body {
+  position: relative;
+  height: 100%;
+  min-height: 100%;
+  background-color: #222;
+}
+
+header {
+  width: 100%;
+  top: 0;
+  padding: .05em 0em 1.45em 0.5em;
+  position: fixed;
+  height: 7.6%;
+  height: absolute;
+  min-height: 40px;
+  z-index: 900;
+  opacity: 100%;
+}
+
+main {
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  padding: 18% 2% 4% 2%;
+  background-color: #253034;
+  color: #ccd;
+}
+
+@media only screen and (min-width: 768px) {
+  main {
+    width: 68%;
+    padding: 4.2% 3.2% 4% 3.2%;
+  }
+
+  header {
+    width: 100%;
+    top: 0;
+    padding: .05em 0em 1.45em 0.5em;
+    position: fixed;
+    height: 7.6%;
+    height: absolute;
+    min-height: 40px;
+    z-index: 900;
+    background: rgba(24, 28, 32, .6);
+  }
+}
+
+
+#logo img {
+  display: block;
+  float: left;
+  width: 76%;
+  margin: 3.2% 0 0 5.4%;
+  position: relative;
+  z-index: 910;
+  opacity: 98%;
+}
+
+#container-logo {
+  display: block;
+  float: left;
+  height: 66.28%;
+  width: 76%;
+  margin: 4.8% 0 0 6.6%;
+  position: relative;
+  left: 0;
+  z-index: 920;
+  background-repeat: no-repeat;
+  background-size: contain;
+  visibility: hidden;
+}
+
+@media only screen and (min-width: 768px) {
+  #logo img {
+    height: 6.28%;
+    min-height: 36px;
+    width: auto;
+    min-width: 307px;
+    max-height: 6.28%;
+    margin: .2% 0 0 .28%;
+    position: fixed;
+    z-index: 0;
+    visibility: hidden;
+  }
+
+  #container-logo {
+    height: 6.44%;
+    min-height: 36px;
+    max-height: 6.44%;
+    width: 30.144%;
+    min-width: 480px;
+    margin: .26% 0 0 .28%;
+    position: fixed;
+    background-image: url('./assets/PlaceholderNameLogo-2048x240.png');
+    opacity: 98%;
+    visibility: visible;
+  }
+}
+
+
+[id*="section-"] {
+  position: relative;
+  width: 100%;
+  height: 512px;
+  /*background: #525355;
+  border: 2px solid #303133;*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.08em;
+  font-family: sans-serif;
+  color: #bbb;
+}
+
+[id*="container-"] {
+  box-shadow: 0px 0px 12px 1px #000000;
+  background: rgba(78, 172, 208, .4);
+}
+
+#container-logo {
+  box-shadow: 0px 0px #00000000;
+  background-color: #00000000;
+}
+
+@media only screen and (min-width: 1920px) {
+  [id*="section-"] {
+    height: 768px;
+  }
+}
+
+
+/* Block Photo Section */
+#section-blockPhoto {
+  padding-bottom: 50%;
+}
+
+#container-blockPhoto {
+  position: relative;
+  width: 72%;
+  /*height: 88%;*/
+  padding-bottom: 100%;
+  margin-top: 50%;
+  /*background: #525385;
+  border: 2px solid #303133;*/
+  background-image: url('./assets/SeniorPhotoEdit-OilPaint-LowerRez.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@media only screen and (min-width: 768px) {
+  #section-blockPhoto {
+    height: 256px;
+  }
+
+  #container-blockPhoto {
+    width: 88%;
+    padding-bottom: 37.5%;
+  }
+}
+
+
+/* Info Section */
+#section-info {
+  justify-content: left;
+  align-items: left;
+}
+
+#container-info {
+  position: relative;
+  width: 72%;
+  height: 88%;
+  left: 16px;
+  float: left;
+}
+
+#info-img {
+  position: relative;
+  float:left;
+  width: 128px;
+  padding-bottom: 50%;
+  background: #6a6cc9;
+}
+
+#info-lwrSec {
+  width: 88%;
+  height: 88%;
+  margin: 8% 2% 2% 4%;
+  padding-left: 16px;
+}
+
+@media only screen and (min-width: 768px) {
+  #info-lwrSec {
+    margin: 2.8% .8% .8% 1.2%;
+  }
+}
+
+
+/* Add(itional) Section */
+[id*="section-add"] {
+  justify-content: right;
+  align-items: right;
+  height: 224px;
+}
+
+[id*="container-add"] {
+  position: relative;
+  width: 78%;
+  height: 94%;
+  right: 16px;
+  float: right;
+  padding: 2%;
+}
+
+
+@media only screen and (min-width: 1120px) {
+  [id*="section-add"] {
+    height: 320px;
+  }
+
+  [id*="container-add"] {
+    width: 48%;
+  }
+
+  [id*="section-"] {
+    font-size: 1.2em;
+  }
+}
