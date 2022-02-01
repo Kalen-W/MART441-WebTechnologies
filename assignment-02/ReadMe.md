@@ -1,0 +1,3 @@
+I don't really have much to discuss for this week, as it was rather simple, and I had no particular difficulty with it.
+
+Well, I guess I wasn't able to answer the question of who my three favorite artists are, as I don't have any. I do look at art, but most of what I look at is from video games, thus I remember it by the game it's from rather than the artist who made it. But, to give at least one example of art I like, you can look up "NieR: Automata environment concept art" and it's particularly the various pieces featuring cities fallen into ruin that I find interesting. (ex: https://cdn.80.lv/api/upload/content/b2/5d2d0d61276c9.jpg)
