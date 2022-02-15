@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta name="author" content="Kalen Weinheimer">
+  <meta name="description" content="">
+  <meta name="keywords" contents="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Homework 4</title>
+  <link rel="stylesheet" type="text/css" href="./styles.css">
+</head>
+<body onload="updateStyle()">
+  <script src="./code-canvasBackground.js"></script>
+
+  <header>A Choose Your Own Adventure Story - By: Kalen Weinheimer</header>
+
+  <div id="menuButtonContainer">
+    <button id="btn-menu-toggle" onclick="toggleMenu()">Menu</button>
+  </div>
+
+
+  <div id="div-text"><p id="txtP-start">To begin your adventure, click the button below.</p></div>
+  <br /><hr id="separator"/><br />
+  <div id="div-input"><button id="btn-choice-start" onclick="startAdventure()">Start Your Adventure</button></div>
+
+
+  <div id="menu">
+    <div id="optionsContainer">
+      <button id="btn-menu-blur" onclick="toggleBlur()">Toggle Blur</button>
+      <button id="btn-menu-bg" onclick="toggleBackground()">Toggle Background</button>
+      <button id="btn-menu-inputMethod" onclick="toggleInputMethod()">Toggle input Method</button>
+    </div>
+
+
+    <div id="resumeContainer">
+      <button id="btn-menu-resume" onclick="toggleMenu()">Resume</button>
+    </div>
+  </div>
+
+  <script src="./code-storyText.js"></script>
+  <script src="./code.js"></script>
+</body>
+</html>
