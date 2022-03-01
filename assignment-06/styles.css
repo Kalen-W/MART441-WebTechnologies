@@ -1,0 +1,50 @@
+html {
+  background: #262628;
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  position: absolute;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/*form {
+  transform: scale(200%);
+  transform-origin: top left;
+}*/
+
+form {
+  width: 100%;
+  height: 24%;
+  margin: 4% auto 0 auto;
+  background: #6b717e44;
+}
+
+input {
+  width: 100%;
+  height: 24%;
+  margin: 2% auto 2% auto;
+}
+
+#getInfoDiv {
+  width: 38%;
+  height: 100%;
+  margin: 0 auto 0 auto;
+  padding-top: 6.8%;
+}
+
+#getInfoSubmit {
+  width: 16%;
+  height: 5%;
+  margin: 2% 0 0 0;
+  position: absolute;
+  left: 50%;
+  -ms-transform: translate(-50%, 0);
+  transform: translate(-50%, 0);
+}
