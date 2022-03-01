@@ -22,29 +22,57 @@ body {
 form {
   width: 100%;
   height: 24%;
-  margin: 4% auto 0 auto;
-  background: #6b717e44;
+  margin: 0 auto 0 auto;
 }
 
 input {
   width: 100%;
-  height: 24%;
-  margin: 2% auto 2% auto;
+  height: 24.6%;
+  margin: 2.2% auto 2.2% auto;
+  font-family: monospace;
+  font-size: 1.2rem;
+  padding-left: 2.2%;
 }
 
 #getInfoDiv {
-  width: 38%;
+  width: 36%;
   height: 100%;
   margin: 0 auto 0 auto;
   padding-top: 6.8%;
 }
 
 #getInfoSubmit {
-  width: 16%;
-  height: 5%;
-  margin: 2% 0 0 0;
+  width: 14%;
+  height: 5.1%;
+  margin: 4% 0 0 0;
   position: absolute;
   left: 50%;
   -ms-transform: translate(-50%, 0);
   transform: translate(-50%, 0);
+  font-family: monospace;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+
+#resultsDiv {
+  width: 36%;
+  height: 100%;
+  margin: 0 auto 0 auto;
+  padding-top: 6.8%;
+}
+
+[id*='results-'] {
+  width: 34%;
+  height: 5.1%;
+  margin: 4% 0 0 0;
+  position: absolute;
+  left: 50%;
+  -ms-transform: translate(-50%, 0);
+  transform: translate(-50%, 0);
+  font-family: monospace;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  color: #a4a1b6;
 }

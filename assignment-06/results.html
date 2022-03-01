@@ -10,6 +10,20 @@
   <link rel="stylesheet" type="text/css" href="./styles.css">
 </head>
 <body>
+  <div id="resultsDiv">
+    <span id="results-name"></span> <br /><br /><br />
+    <span id="results-age"></span> <br /><br /><br />
+    <span id="results-attempts"></span>
+  </div>
 
+
+  <script>
+    var info = JSON.parse(localStorage.getItem('playerInfo'));
+    console.log(info);
+
+    document.getElementById('results-name').innerHTML = 'Player Name: ' + info.firstName + ' ' + info.lastName;
+    document.getElementById('results-age').innerHTML = 'Player Age: ' + info.age;
+    document.getElementById('results-attempts').innerHTML = 'Attempts: ' + info.attempts;
+  </script>
 </body>
 </html>

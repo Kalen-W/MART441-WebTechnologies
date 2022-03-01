@@ -16,7 +16,8 @@ const ctx = canvas.getContext("2d",  { alpha: false });
 var colors = {
   background: "#262628",
   color1: "#24b6d6",
-  color2: "#ff6644"
+  color2: "#4e83aa",
+  matchedColor: "#6a848f"
 };
 
 var cardBase = [0, 0, 1, 1, 2, 2, 3, 3, 4, 4];
@@ -30,74 +31,11 @@ var cardW = Math.floor(cardH/1.4);
 var yGap = Math.floor((screenH - cardH * 2) / 3);
 var xGap = Math.floor((screenW - cardW * 5) / 6);
 
+var allowClick = true;
+var attempts = 0;
+
 
 //--------------------------------------------------------------------------------------------------------------------------------|Classes
-/*class clickableObj {
-  constructor(xCenter,yCenter, radius, type, defaultColor, hoverColor) {
-    this.path = new Path2D();
-    this.x = xCenter;
-    this.y = yCenter;
-    this.r = radius;
-    this.type = type;
-    this.colors = {
-      current: defaultColor,
-      default: defaultColor,
-      hover: hoverColor
-    };
-
-    this.direction = 1.2*Math.PI;
-    this.speed = 8;
-    this.initPath();
-  }
-
-  initPath() {
-    if (this.type == "circle") {
-      this.path.arc(this.x,this.y, this.r, 0,2*Math.PI);
-      this.path.closePath();
-    }
-  }
-
-  render() {
-    ctx.fillStyle = this.colors.current;
-    ctx.fill(this.path);
-  }
-
-  inPath(ctx, offX,offY) {
-    this.colors.current = ctx.isPointInPath(this.path, offX,offY)
-      ? this.colors.current = this.colors.hover
-      : this.colors.current = this.colors.default;
-
-    return ctx.isPointInPath(this.path, offX,offY);
-  }
-
-  update() {
-    this.x += Math.cos(this.direction) * this.speed;
-    this.y += Math.sin(this.direction) * this.speed;
-
-    if (this.x-this.r < 0 || this.x+this.r > screenW) {
-      this.direction = this.direction <= Math.PI
-        ? this.direction = .5*Math.PI-(this.direction-.5*Math.PI)
-        : this.direction = 1.5*Math.PI-(this.direction-1.5*Math.PI);
-    }
-    if (this.y-this.r < 0 || this.y+this.r > screenH) {
-      this.direction = this.direction > .5*Math.PI && this.direction <= 1.5*Math.PI
-        ? this.direction = Math.PI-(this.direction-Math.PI)
-        : this.direction = 2*Math.PI-(this.direction-2*Math.PI);
-    }
-
-    this.path = new Path2D();
-    this.path.arc(this.x,this.y, this.r, 0,2*Math.PI);
-    this.path.closePath();
-
-    this.inPath(ctx, canvasOffX,canvasOffY);
-  }
-}
-
-clickableObjArray = [
-  new clickableObj(64,256, 32, "circle", colors.color1, colors.color2),
-  new clickableObj(256,64, 32, "circle", colors.color1, colors.color2)
-];*/
-
 class card {
   constructor(xCenter,yCenter, width,height, edgeRadius, defaultColor,hoverColor, value) {
     this.path = new Path2D();
@@ -109,10 +47,12 @@ class card {
     this.colors = {
       current: defaultColor,
       default: defaultColor,
-      hover: hoverColor
+      hover: hoverColor,
+      matched: colors.matchedColor
     };
     this.value = value;
     this.displayValue = false;
+    this.matched = false;
 
     this.direction = 1.2*Math.PI;
     this.speed = 8;
@@ -149,17 +89,25 @@ class card {
   }
 
   inPath(ctx, offX,offY) {
-    this.colors.current = ctx.isPointInPath(this.path, offX,offY)
-      ? this.colors.current = this.colors.hover
-      : this.colors.current = this.colors.default;
+    if (allowClick && !this.matched) {
+      this.colors.current = ctx.isPointInPath(this.path, offX,offY)
+        ? this.colors.current = this.colors.hover
+        : this.colors.current = this.colors.default;
 
-    return ctx.isPointInPath(this.path, offX,offY);
+      return ctx.isPointInPath(this.path, offX,offY);
+    } else if (this.matched) {
+      this.colors.current = this.colors.matched;
+    } else {
+      this.colors.current = this.colors.default;
+    }
   }
 
   clickEvent() {
     //console.log(this.value);
     //this.displayValue = !this.displayValue;
-    matchCheck(this);
+    if (!selectedCards.includes(this)) {
+      matchCheck(this);
+    }
   }
 
   renderValue() {
@@ -173,49 +121,9 @@ class card {
 }
 
 
-//--------------------------------------------------------------------------------------------------------------------------------|Loop
-setInterval(drawLoop, tick);
+//--------------------------------------------------------------------------------------------------------------------------------|Card Array
 randomizeCards();
 
-function drawLoop() {
-  clearScreen();
-  //clickableObjArray[0].update();
-
-  cardArray.forEach((item, i) => {
-    item.render();
-  });
-}
-
-function clearScreen() {
-  ctx.fillStyle = colors.background;
-  ctx.fillRect(0, 0, screenW, screenH);
-}
-
-
-//--------------------------------------------------------------------------------------------------------------------------------|Functions
-function randomizeCards() {
-  cardBase = [0, 0, 1, 1, 2, 2, 3, 3, 4, 4];
-  for (var i=0; i<numberOfCards; i++) {
-    const randomCard = Math.floor(Math.random()*cardBase.length);
-    cardDisplay[i] = cardBase[randomCard];
-    cardBase.splice(randomCard,1);
-  }
-  console.log(cardDisplay);
-}
-
-var selectedCards = [];
-function matchCheck(card) {
-  if (selectedCards.length <= 0) {
-    selectedCards.push(card);
-  } else {
-    if (card.value == selectedCards[0].value) {
-      console.log("card match test");
-    }
-  }
-}
-
-
-//--------------------------------------------------------------------------------------------------------------------------------|Card Array
 var cardArray = [
   new card(
     cardW*.5 + xGap, cardH*.5 + yGap,
@@ -271,6 +179,78 @@ var cardArray = [
   ),
 ];
 
+setInterval(drawLoop, tick);
+
+
+//--------------------------------------------------------------------------------------------------------------------------------|Loop
+function drawLoop() {
+  clearScreen();
+  //clickableObjArray[0].update();
+
+  cardArray.forEach((item, i) => {
+    item.render();
+  });
+}
+
+function clearScreen() {
+  ctx.fillStyle = colors.background;
+  ctx.fillRect(0, 0, screenW, screenH);
+}
+
+
+//--------------------------------------------------------------------------------------------------------------------------------|Functions
+function randomizeCards() {
+  cardBase = [0, 0, 1, 1, 2, 2, 3, 3, 4, 4];
+  for (var i=0; i<numberOfCards; i++) {
+    const randomCard = Math.floor(Math.random()*cardBase.length);
+    cardDisplay[i] = cardBase[randomCard];
+    cardBase.splice(randomCard,1);
+  }
+  console.log(cardDisplay);
+}
+
+var selectedCards = [];
+function matchCheck(card) {
+  if (selectedCards.length <= 0) {
+    card.displayValue = true;
+    selectedCards[0] = card;
+    //selectedCards.push(card);
+  } else if (card.value == selectedCards[0].value) {
+    card.displayValue = true;
+    selectedCards[0].matched = true;
+    card.matched = true;
+
+    attempts += 1;
+    selectedCards = [];
+  } else {
+    card.displayValue = true;
+
+
+    selectedCards.push(card);
+    allowClick = false;
+    setTimeout(delayedHide, 1000);
+  }
+
+
+  if (cardArray.every((item, i) => { return item.matched; })) {
+    var info = JSON.parse(localStorage.getItem('playerInfo'));
+    info.attempts = attempts;
+
+    localStorage.setItem('playerInfo', JSON.stringify(info));
+    window.location = "./results.html";
+  }
+
+}
+
+function delayedHide() {
+  selectedCards[0].displayValue = false;
+  selectedCards[1].displayValue = false;
+
+  attempts += 1;
+  selectedCards = [];
+  allowClick = true;
+}
+
 
 //--------------------------------------------------------------------------------------------------------------------------------|Event Listeners
 canvas.addEventListener('mousemove', function(e) {
@@ -284,7 +264,7 @@ canvas.addEventListener('mousemove', function(e) {
 
 canvas.addEventListener("click", () => {
   cardArray.forEach((item, i) => {
-    if (item.inPath(ctx, canvasOffX,canvasOffY)) {
+    if (allowClick && !item.matched && item.inPath(ctx, canvasOffX,canvasOffY)) {
       item.clickEvent();
     }
   });

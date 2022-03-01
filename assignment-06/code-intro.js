@@ -1,9 +1,10 @@
 var information = {
-  firstName: "Kalen",
-  lastName: "Weinheimer",
-  age: 20,
+  firstName: 'firstNameDefault',
+  lastName: 'lastNameDefault',
+  age: 0,
   attempts: 0
 };
+
 
 // localStorage.setItem('playerInfo', JSON.stringify(information));
 //
@@ -18,7 +19,7 @@ function submitUserInfo() {
   //information.attempts = JSON.parse(localStorage.getItem('playerInfo')).attempts;
 
   localStorage.setItem('playerInfo', JSON.stringify(information));
-  console.log(JSON.parse(localStorage.getItem('playerInfo')));
+  //console.log(JSON.parse(localStorage.getItem('playerInfo')));
 
   window.location = "./game.html";
 }
