@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta name="author" content="XCVIII">
+  <meta name="description" content="">
+  <meta name="keywords" contents="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Homework 9</title>
+
+  <link rel='stylesheet' type='text/css' href='./styles.css'>
+
+</head>
+<body class='alignItems' onload="getPkmnData(1)">
+
+  <input id='dexNumSelector' class='alignItems' type='number' min='1' max='898' value='1'>
+
+  <div id='primaryInfoContainer' class='alignItems'>
+    <img id='pkmnSprite'> <br />
+    <div id='pkmnName'></div> <br /><hr /><br />
+    <div id='statDiv' style='font-size:1.1rem;'></div>
+  </div>
+
+
+  <div id='testDiv' style='width:100%; overflow:hidden;'></div>
+  <div id='hiddenDiv' style='display:block;'></div>
+
+
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+  <script src="./code.js"></script>
+</body>
+</html>
