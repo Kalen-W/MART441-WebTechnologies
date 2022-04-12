@@ -1,0 +1,36 @@
+html {
+  background: #222;
+  color: #bbb;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  flex-direction: column;
+}
+
+.alignItems {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  vertical-align: middle;
+}
+
+
+#song {
+  z-index: 10;
+  position: relative;
+  opacity: 20%;
+  margin-top: -36px;
+  transition: opacity 0.8s, margin-top 0.6s;
+}
+
+#song:hover {
+  opacity: 96%;
+  margin-top: 0;
+}

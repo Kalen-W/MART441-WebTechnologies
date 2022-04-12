@@ -1,0 +1,55 @@
+{
+  "type0s": [
+    {
+      "x": 256,
+      "y": 256
+    },
+    {
+      "x": "random",
+      "y": "random"
+    },
+    {
+      "x": "random",
+      "y": "random"
+    },
+    {
+      "x": "random",
+      "y": "random"
+    },
+    {
+      "x": "random",
+      "y": "random"
+    },
+    {
+      "x": "random",
+      "y": "random"
+    }
+  ],
+
+  "type1s": [
+    {
+      "x": 292,
+      "y": 256
+    },
+    {
+      "x": "random",
+      "y": "random"
+    },
+    {
+      "x": "random",
+      "y": "random"
+    },
+    {
+      "x": "random",
+      "y": "random"
+    },
+    {
+      "x": "random",
+      "y": "random"
+    },
+    {
+      "x": "random",
+      "y": "random"
+    }
+  ]
+}

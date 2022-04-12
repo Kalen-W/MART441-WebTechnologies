@@ -1,0 +1,96 @@
+{
+  "player": {
+    "x": null,
+    "y": null,
+    "shapeInfo": {
+      "type": "circle",
+      "radius": 20,
+      "style": {
+        "lw": 2,
+        "ss": "#95acb9",
+        "fs": "#1d3137"
+      }
+    },
+    "speed": 12
+  },
+
+  "misc": [
+    {
+      "x": "random",
+      "y": "random",
+      "shapeInfo": {
+        "type": "rect",
+        "width": 32,
+        "height": 32,
+        "style": {
+          "lw": 2,
+          "ss": "#5a6662",
+          "fs": "#6a312a"
+        }
+      },
+      "speed": 12
+    },
+
+    {
+      "x": "random",
+      "y": "random",
+      "shapeInfo": {
+        "type": "rect",
+        "width": 32,
+        "height": 64,
+        "style": {
+          "lw": 2,
+          "ss": "#5a6662",
+          "fs": "#6a312a"
+        }
+      },
+      "speed": 12
+    },
+
+    {
+      "x": "random",
+      "y": "random",
+      "shapeInfo": {
+        "type": "rect",
+        "width": 80,
+        "height": 20,
+        "style": {
+          "lw": 2,
+          "ss": "#5a6662",
+          "fs": "#6a312a"
+        }
+      },
+      "speed": 12
+    },
+
+    {
+      "x": "random",
+      "y": "random",
+      "shapeInfo": {
+        "type": "circle",
+        "radius": 64,
+        "style": {
+          "lw": 2,
+          "ss": "#5a6662",
+          "fs": "#6a312a"
+        }
+      },
+      "speed": 12
+    },
+
+    {
+      "x": "random",
+      "y": "random",
+      "shapeInfo": {
+        "type": "circle",
+        "radius": 8,
+        "style": {
+          "lw": 2,
+          "ss": "#5a6662",
+          "fs": "#6a312a"
+        }
+      },
+      "speed": 12
+    }
+  ]
+}
