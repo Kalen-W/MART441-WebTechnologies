@@ -56,19 +56,29 @@ var game = new Phaser.Game(config);
 
 //--------------------------------------------------------------------------------------------------------------------------------|Preload Function
 function preload() {
-  this.load.setBaseURL('http:labs.phaser.io');
+  // this.load.setBaseURL('http:labs.phaser.io');
+  //
+  // this.load.image('sky', 'assets/skies/space3.png');
+  // this.load.image('ground', 'assets/sprites/platform.png');
+  // this.load.image('logo', 'assets/sprites/phaser3-logo.png');
+  // this.load.image('red', 'assets/particles/red.png');
+  //
+  // this.load.image('star', 'assets/demoscene/star.png');
+  // this.load.image('pointObj2', 'assets/demoscene/star.png');
+  // this.load.image('bomb', 'assets/sprites/mine.png');
+  // this.load.image('spike', 'assets/sprites/mine.png');
+  //
+  // this.load.spritesheet('dude', 'assets/sprites/dude.png', { frameWidth: 32, frameHeight: 48 });
 
-  this.load.image('sky', 'assets/skies/space3.png');
-  this.load.image('ground', 'assets/sprites/platform.png');
-  this.load.image('logo', 'assets/sprites/phaser3-logo.png');
-  this.load.image('red', 'assets/particles/red.png');
+  this.load.image('sky', './assets/space3.png');
+  this.load.image('ground', './assets/platform.png');
 
-  this.load.image('star', 'assets/demoscene/star.png');
-  this.load.image('pointObj2', 'assets/demoscene/star.png');
-  this.load.image('bomb', 'assets/sprites/mine.png');
-  this.load.image('spike', 'assets/sprites/mine.png');
+  this.load.image('star', './assets/star.png');
+  this.load.image('pointObj2', './assets/star3.png');
+  this.load.image('bomb', './assets/mine.png');
+  this.load.image('spike', './assets/mine.png');
 
-  this.load.spritesheet('dude', 'assets/sprites/dude.png', { frameWidth: 32, frameHeight: 48 });
+  this.load.spritesheet('dude', './assets/dude.png', { frameWidth: 32, frameHeight: 48 });
 }
 
 
