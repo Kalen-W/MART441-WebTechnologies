@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta name="author" content="Kalen Weinheimer">
+  <meta name="description" content="">
+  <meta name="keywords" contents="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assignment 14 - Index 2</title>
+  <link rel="stylesheet" type="text/css" href="./styles.css">
+
+  <script>
+    function refreshPage() {
+      const params = new URLSearchParams(window.location.search);
+      var fName = params.get("firstName");
+      var lName = params.get("lastName");
+      var refresh = params.has("norefresh");
+      if (!refresh) {
+        window.location = "index2.html?firstName=" + fName + "&lastName=" + lName + "&norefresh=1";
+      }
+    }
+  </script>
+
+</head>
+
+<body onload="refreshPage()" class='alignItems'>
+  <h1>Welcome!</h1>
+  <span>TestFirstName TestLastName</span>
+</body>
+</html>
