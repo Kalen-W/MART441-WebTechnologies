@@ -1,0 +1,39 @@
+@font-face {
+  font-family: 'VT323';
+  src: url(./assets/fonts/VT323-Regular.ttf);
+}
+
+html {
+  background: #222;
+  color: #bbb;
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+  font-family: VT323, monospace, sans-serif;
+  text-align: center;
+  font-size: 1rem;
+  letter-spacing: 0.06em;
+  color: #b9babbee;
+}
+
+
+.alignItems {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.unselectable {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
